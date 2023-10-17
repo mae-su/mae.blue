@@ -7,12 +7,12 @@ body.dark-mode{
     mix-blend-mode:lighten;
     color:white;
 }
-.dark-mode #bluehighlight{
+.dark-mode #blue-highlight{
     text-shadow:
     0px 0px 10px #0000FF;
 }
 
-.dark-mode #bluehighlight:hover{
+.dark-mode #blue-highlight:hover{
     cursor:pointer;
     text-shadow:
     0px 0px 10px #0000FF,
@@ -36,8 +36,6 @@ font-family: 'Roboto Flex', sans-serif; */
 body{
     transition:background-color 0.5s ease; /*dev*/
     background-color: rgb(243,243,243);
-    /* background:url('bg.webp') no-repeat;
-    background-size:cover; */
     overflow: hidden;
     height:100vh;
     width:100vw;
@@ -49,21 +47,13 @@ main{
     top:0%;
     width:100%;
     height:100vh;
-    
 }
 
-main > div{
-    opacity:1;
-}
-.preMainScreen > main > div{
-    opacity:0;
-}
 #banner{
-  
     width:100vw;
     position:absolute;   
     color:#333333;
-    animation: banneranim 6s ease;
+    animation: banner-anim 6s ease;
     top:30%;
     left:50%;
     transition: all 0.4s ease;
@@ -75,14 +65,14 @@ main > div{
     mix-blend-mode:darken;
 }
 
-#bluehighlight{
+#blue-highlight{
     transition:text-shadow 0.375s ease; /*dev*/
     text-shadow:
     0px 0px 5px #0000FF;
     font-weight:300;
 }
 
-@keyframes banneranim {
+@keyframes banner-anim {
     0%{
         transform:translate(100vw,-50%) scale(300%,200%);
         color:#292929;
@@ -135,7 +125,7 @@ main > div{
     display:inline-block;
     transform:translateX(-3em);
     opacity:0;
-    animation:slogan-slide-out 1s ease;
+    animation:slogan-slide-out-anim 1s ease;
     animation-delay:3.5s;
     animation-fill-mode: both;
     text-align:left;
@@ -164,7 +154,7 @@ main > div{
     }
 }
 
-@keyframes slogan-slide-out{
+@keyframes slogan-slide-out-anim{
     0%{
         transform:translateX(-3em);
         opacity:0;
@@ -172,72 +162,5 @@ main > div{
     100%{
         transform:translateX(0);
         opacity:1;
-    }
-}
-
-#stream{
-    position:absolute;
-    top:33%;
-    margin:5%;
-    left:0;
-    right:0;
-    display:block;
-}
-
-.stream-element{
-    color:var(--font-color);
-    /* background-color: var(--backdrop-color); */
-    width:90vw;
-    padding:1rem;
-    opacity:0;
-    border-radius: 0.5rem;
-    animation:stream-element-appear 0.5s ease;
-    animation-delay:5s;
-    animation-fill-mode: forwards;
-}
-@keyframes stream-element-appear {
-    0%{
-        transform:translate(0,50%) scale(85%,85%);
-        opacity:0;
-    }
-    100%{
-        transform:translate(0,0) scale(100%,100%);
-        opacity:1;
-    }
-}
-.stream-title{
-    font-family: 'Roboto', sans-serif;
-    font-size:3rem;
-    font-weight:300;
-    mix-blend-mode:overlay;
-}
-
-.stream-title {
-    display: inline-block;
-    position: relative;
-    color: var(--font-color);
-  }
-  
-.stream-title::after {
-content: '';
-position: absolute;
-width: 100%;
-transform: scaleX(0);
-height: 2px;
-bottom: 0;
-left: 0;
-background-color: var(--font-color);
-transform-origin: bottom left;
-transition: transform 0.25s ease-out;
-animation:stream-title-underline 0.25s ease;
-animation-fill-mode: both;
-animation-delay:5.5s;
-}
-@keyframes stream-title-underline{
-    0%{
-    }
-    100%{
-        transform: scaleX(1);
-    transform-origin: bottom left;
     }
 }
