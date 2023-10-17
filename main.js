@@ -1,16 +1,12 @@
-class blueElement{ 
-    constructor(ID){
-        this.elem = document.getElementById(ID);
-        this.ID = ID;
-        this.elem.setAttribute()
+// Listen for keydown events on the document
+document.addEventListener('keydown', function(event) {
+    // Check if the pressed key is 'D'
+    if (event.key === 'd' || event.key === 'D') {
+      // Toggle the "dark-mode" class on the body element
+      document.body.classList.toggle('dark-mode');
     }
-
-    setPosition(x=null, y=null){
-        if(x != null){
-            this.elem.style.transformStyle = ""
-        }
-    }
-}
+  });
+  
 
 function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
@@ -32,4 +28,7 @@ const shortenedMOTD = shortenedMOTDs[MOTDselector]
 document.title = ".blue | " + shortenedMOTD;
 document.getElementById("test").innerText = MOTD;
 console.log(MOTD)
-delay(1500).then(() => {rmBodyClass("preMainScreen")});
+
+document.addEventListener('DOMContentLoaded', function() {
+  
+}, false);
