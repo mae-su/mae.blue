@@ -59,11 +59,12 @@ main > div{
     opacity:0;
 }
 #banner{
+  
     width:100vw;
     position:absolute;   
     color:#333333;
-    animation: banneranim 4s ease;
-    top:50.11%;
+    animation: banneranim 6s ease;
+    top:30%;
     left:50%;
     transition: all 0.4s ease;
     text-align: center;
@@ -72,7 +73,6 @@ main > div{
     font-size:5em;
     font-weight:100;
     mix-blend-mode:darken;
-
 }
 
 #bluehighlight{
@@ -89,37 +89,41 @@ main > div{
         opacity:1;
         top:50%;
     }
-    24.9%{
+    16.6%{
         transform:translate(-55vw,-50%) scale(300%,300%);
         color:#292929;
         opacity:1;
         top:50%;
     }
    
-    29.95%{
+    19.967%{
         transform:translate(-55vw,-50%) scale(300%,300%);
         opacity:1;
         color:#292929;
         top:50%;
     }
-    30%{
+    20%{
         transform:translate(-100vw,-50%) scale(200%,66%);
         opacity:1;
-        top:50.11%;
+        top:50%;
         color:var(--font-color);
         mix-blend-mode:normal;
     }
-    42.5%{
+    28.333%{
         transform:translate(-50%,-50%) scale(100%,100%);
         opacity:1;
         mix-blend-mode:normal;
     }
-    75%{
+    50%{
         opacity:1;
         mix-blend-mode:normal;
     }
-    
-    
+    84%{
+        top:50%;
+    }
+    100%{
+        top:30%;
+    }
 }
 
 #slogan{
@@ -182,7 +186,7 @@ main > div{
 
 .stream-element{
     color:var(--font-color);
-    background-color: var(--backdrop-color);
+    /* background-color: var(--backdrop-color); */
     width:90vw;
     padding:1rem;
     opacity:0;
@@ -204,5 +208,36 @@ main > div{
 .stream-title{
     font-family: 'Roboto', sans-serif;
     font-size:3rem;
-    font-weight:100;
+    font-weight:300;
+    mix-blend-mode:overlay;
+}
+
+.stream-title {
+    display: inline-block;
+    position: relative;
+    color: var(--font-color);
+  }
+  
+.stream-title::after {
+content: '';
+position: absolute;
+width: 100%;
+transform: scaleX(0);
+height: 2px;
+bottom: 0;
+left: 0;
+background-color: var(--font-color);
+transform-origin: bottom left;
+transition: transform 0.25s ease-out;
+animation:stream-title-underline 0.25s ease;
+animation-fill-mode: both;
+animation-delay:5.5s;
+}
+@keyframes stream-title-underline{
+    0%{
+    }
+    100%{
+        transform: scaleX(1);
+    transform-origin: bottom left;
+    }
 }
