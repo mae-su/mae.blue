@@ -10,7 +10,6 @@ body.dark-mode{
 .dark-mode #bluehighlight{
     text-shadow:
     0px 0px 10px #0000FF;
-    
 }
 
 .dark-mode #bluehighlight:hover{
@@ -60,6 +59,7 @@ main > div{
     opacity:0;
 }
 #banner{
+    width:100vw;
     position:absolute;   
     color:#333333;
     animation: banneranim 4s ease;
@@ -78,7 +78,6 @@ main > div{
 #bluehighlight{
     transition:text-shadow 0.375s ease; /*dev*/
     text-shadow:
-    
     0px 0px 5px #0000FF;
     font-weight:300;
 }
@@ -140,6 +139,7 @@ main > div{
 
 #banner-midline{
     display:inline;
+    position:relative;
     animation:banner-midline-anim 1s ease;
     animation-delay:4s;
     animation-fill-mode:both;
