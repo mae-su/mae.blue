@@ -36,9 +36,14 @@ font-family: 'Roboto Flex', sans-serif; */
 body{
     transition:background-color 0.5s ease; /*dev*/
     background-color: rgb(243,243,243);
-    overflow: hidden;
-    height:100vh;
+    
     width:100vw;
+    overflow-x: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+body::-webkit-scrollbar {
+    display: none;
 }
 main{
     transition:top 0.5s ease;
