@@ -1,6 +1,7 @@
 document.title = ".blue | nonstandard.";
 let pageInitTime = new Date();
 const STREAM_TIMING = 5000;
+SWIPE_THRESHOLD = 78;
 
 function introComplete() {
   let currentTime = new Date();
@@ -70,14 +71,16 @@ async function fetchHTMLWithProgress(url) {
 async function loadSiteContent(stream_div){
   const fetchedHTML = await fetchHTMLWithProgress("./content/stream.html");
   if (introComplete()) {
-    stream_div.innerHTML += fetchedHTML;
+    injectSiteContent(stream_div,fetchedHTML)
+  
   } else {
     let remainingTime = STREAM_TIMING - (new Date() - pageInitTime);
     console.log(`Time to inject: ${remainingTime}`);
     setTimeout(() => {
-      stream_div.innerHTML += fetchedHTML;
+      injectSiteContent(stream_div,fetchedHTML)
     }, remainingTime);
   }
+  
 }
 
 document.addEventListener('DOMContentLoaded', async function () {
@@ -107,5 +110,24 @@ document.addEventListener('DOMContentLoaded', async function () {
   } else{
     loadSiteContent(stream_div)
   }
+  
 
 }, false);
+
+function injectSiteContent(stream_div, fetchedHTML){
+  stream_div.innerHTML += fetchedHTML;
+  rmBodyClass('_preMainScreen')
+  document.addEventListener("wheel", function(event) {
+    console.log(event.deltaX)
+    if (Math.abs(event.deltaX)>SWIPE_THRESHOLD){
+      if (event.deltaX > 0) {
+        console.log("Swiped left");
+        addBodyClass('_projectsView');
+      } else if (event.deltaX < 0) {
+        console.log("Swiped right");
+        rmBodyClass('_projectsView');
+      }
+    }
+  });
+  
+}
