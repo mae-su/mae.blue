@@ -70,6 +70,7 @@ body::-webkit-scrollbar {
 ._preMainScreen #projects-button{
     opacity:0;
 }
+
 #projects-button{
     position:absolute;
     top:0;
@@ -104,7 +105,7 @@ body::-webkit-scrollbar {
 }
 
 #banner{
-    width:100vw;
+    width:40vw;
     position:absolute;   
     color:#333333;
     animation: banner-anim 6s ease;
